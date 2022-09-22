@@ -3,6 +3,8 @@ import { Container, Grid, Header } from 'semantic-ui-react';
 import RuleCardChooser from './Components/RuleCardChooser';
 import GitHubLink from './Components/GitHubLink';
 
+const footerText = ['Rule of the Day', 'Contact', 'About'];
+
 const App = () => (
   <Container text>
     <div style={{position: "relative", top: "2em"}}>
@@ -13,16 +15,19 @@ const App = () => (
         </Header.Subheader>
       </Header>
       <RuleCardChooser />
-      <Grid columns={3} style={{position: 'relative', top: '2em'}}>
-        <Grid.Column/>
-        <Grid.Column>
-          <p align='center' style={{'font-size': '0.875em'}}>
-            Rule of the Day | Contact | About
-          </p>
-        </Grid.Column>
-        <Grid.Column textAlign='right'>
+      <Grid fluid columns={footerText.length + 1} textAlign='center' style={{position: 'relative', top: '2em'}}>
+        <Grid.Row>
+          {footerText.map((text, i) => (
+            <Grid.Column key={i}>
+              <p style={{fontSize: '0.75em'}}>
+                {text}
+              </p>
+            </Grid.Column>
+          ))}
+          <Grid.Column>
             <GitHubLink/>
-        </Grid.Column>
+          </Grid.Column>
+        </Grid.Row>
       </Grid>
     </div>
   </Container>
