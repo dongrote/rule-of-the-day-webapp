@@ -2,12 +2,12 @@ import React from 'react';
 import { Grid, Header, Icon, Menu } from 'semantic-ui-react';
 import dayjs from 'dayjs';
 
-const mobileDateFormatString = 'MMM D, YYYY';
-const tabletDateFormatString = 'dd, MMM D, YYYY';
+const mobileDateFormatString = 'dd, MMM D, YYYY';
+const tabletDateFormatString = 'ddd, MMM D, YYYY';
 const verboseDateFormatString = 'dddd, MMMM D, YYYY';
 
 const DateDisplay = props => (
-  <Menu>
+  <Menu compact fitted borderless>
     {props.onPreviousClick && (
       <Menu.Item onClick={() => props.onPreviousClick()}>
         <Icon name='arrow left'/>
