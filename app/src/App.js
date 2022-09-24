@@ -15,7 +15,7 @@ const App = () => (
         </Header.Subheader>
       </Header>
       <RuleCardChooser />
-      <Grid fluid columns={footerText.length + 1} textAlign='center' style={{position: 'relative', top: '2em'}}>
+      <Grid columns={footerText.length + 1} textAlign='center' style={{position: 'relative', top: '2em'}}>
         <Grid.Row>
           {footerText.map((text, i) => (
             <Grid.Column key={i}>
