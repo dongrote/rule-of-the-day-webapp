@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Grid, Label, Message, Placeholder } from 'semantic-ui-react';
+import { Card, Grid, Label, Message, Placeholder, Segment } from 'semantic-ui-react';
 import DateDisplay from './DateDisplay';
 
 const RuleCard = props => {
@@ -7,21 +7,24 @@ const RuleCard = props => {
     <Card fluid>
       <Card.Content>
         <Card.Header>
-          <Grid columns={2}>
-            <Grid.Column textAlign='left'>
-              <DateDisplay
-                date={props.date}
-                onPreviousClick={props.onPreviousDate}
-                onNextClick={props.onAdvanceDate}
-              />
-            </Grid.Column>
-            <Grid.Column textAlign='right'>
-              <Label circular color='grey'>{props.ruleNumber}</Label>
-            </Grid.Column>
-          </Grid>
+          <DateDisplay
+            date={props.date}
+            onPreviousClick={props.onPreviousDate}
+            onNextClick={props.onAdvanceDate}
+          />
         </Card.Header>
         <Card.Description>
-          {(!props.loading && !props.error) && props.ruleText}
+          <Segment color='black'>
+          {(!props.loading && !props.error) && (
+            <Grid padded>
+              <Grid.Column width={14}>
+                {props.ruleText}
+              </Grid.Column>
+              <Grid.Column textAlign='right' width={2}>
+                <Label circular color='grey'>{props.ruleNumber}</Label>
+              </Grid.Column>
+            </Grid>
+          )}
           {(!props.loading && props.error) && (
             <Message negative>
               <Message.Header>{props.error.name}</Message.Header>
@@ -34,6 +37,7 @@ const RuleCard = props => {
               <Placeholder.Line />
             </Placeholder>
           )}
+          </Segment>
         </Card.Description>
       </Card.Content>
       {props.description &&

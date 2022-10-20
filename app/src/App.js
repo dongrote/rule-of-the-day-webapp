@@ -11,7 +11,7 @@ const App = () => (
       <Header textAlign='center'>
         Rule of the Day
         <Header.Subheader>
-          Dr. Jordan Peterson's Rules For Life
+          Dr. Jordan B. Peterson's Rules For Life
         </Header.Subheader>
       </Header>
       <RuleCardChooser />

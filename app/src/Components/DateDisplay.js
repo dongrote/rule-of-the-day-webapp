@@ -1,37 +1,39 @@
 import React from 'react';
-import { Grid, Header, Icon, Menu } from 'semantic-ui-react';
+import { Grid, Header, Icon } from 'semantic-ui-react';
 import dayjs from 'dayjs';
 
-const mobileDateFormatString = 'dd, MMM D, YYYY';
-const tabletDateFormatString = 'ddd, MMM D, YYYY';
+const mobileDateFormatString = 'ddd, MMM D, YYYY';
+const tabletDateFormatString = 'dddd, MMM D, YYYY';
 const verboseDateFormatString = 'dddd, MMMM D, YYYY';
 
+const DateHeader = props => <Header as='h3' content={props.content} />;
+
 const DateDisplay = props => (
-  <Menu compact fitted borderless>
+  <Grid centered columns={3}>
     {props.onPreviousClick && (
-      <Menu.Item onClick={() => props.onPreviousClick()}>
+      <Grid.Column onClick={() => props.onPreviousClick()} textAlign='left' verticalAlign='middle' width={2}>
         <Icon name='arrow left'/>
-      </Menu.Item>
+      </Grid.Column>
     )}
-    <Menu.Item>
-      <Grid>
+    <Grid.Column verticalAlign='middle' width={6}>
+      <Grid textAlign='center'>
         <Grid.Row only='mobile'>
-          <Header content={dayjs(props.date).format(mobileDateFormatString)} />
+          <DateHeader content={dayjs(props.date).format(mobileDateFormatString)} />
         </Grid.Row>
         <Grid.Row only='tablet'>
-          <Header content={dayjs(props.date).format(tabletDateFormatString)} />      
+          <DateHeader content={dayjs(props.date).format(tabletDateFormatString)} />      
         </Grid.Row>
         <Grid.Row only='computer'>
-          <Header content={dayjs(props.date).format(verboseDateFormatString)} />      
+          <DateHeader content={dayjs(props.date).format(verboseDateFormatString)} />      
         </Grid.Row>
       </Grid>
-    </Menu.Item>
+    </Grid.Column>
     {props.onNextClick && (
-      <Menu.Item onClick={() => props.onNextClick()}>
+      <Grid.Column onClick={() => props.onNextClick()} textAlign='left' verticalAlign='middle' width={2}>
         <Icon name='arrow right' />
-      </Menu.Item>
+      </Grid.Column>
     )}
-  </Menu>
+  </Grid>
 );
 
 export default DateDisplay;
