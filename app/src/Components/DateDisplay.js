@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Header, Icon } from 'semantic-ui-react';
 import dayjs from 'dayjs';
 
-const mobileDateFormatString = 'ddd, MMM D, YYYY';
+const mobileDateFormatString = 'MMM D, YYYY';
 const tabletDateFormatString = 'dddd, MMM D, YYYY';
 const verboseDateFormatString = 'dddd, MMMM D, YYYY';
 
